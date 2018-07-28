@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        applicationId "com.utte.tinytunnel"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            //给applicationId添加后缀“.debug”
+            applicationIdSuffix ".debug"
+            //manifestPlaceholders = [app_icon: "@drawable/launch_beta"]
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.app_compat
+    implementation deps.support.constraint
+    implementation deps.support.multidex
+
+    implementation project(':lib_common')
+    if (!isModule.toBoolean()) {
+        implementation project(':module_main')
+        implementation project(':module_video')
+        implementation project(':module_essay')
+    }
+
+}

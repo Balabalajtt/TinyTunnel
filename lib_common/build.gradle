@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support libraries
+    api deps.support.app_compat
+    api deps.support.v4
+    api deps.support.design
+    api deps.support.recyclerview
+    api deps.support.constraint
+
+    // RxJava and retrofit
+    api deps.rx_android
+    api deps.rxjava2
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+
+    api deps.event_bus
+    api deps.gson
+    api deps.permission
+    api deps.utils
+    api deps.glide
+
+    //view
+    api deps.easy_recycler
+    api deps.material_dialog
+    api deps.logger
+
+    //router
+    api deps.arouter_api
+
+    compile 'com.zhy:autolayout:1.4.5'
+
+}

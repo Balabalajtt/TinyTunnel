@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_main">main组件</string>
+
+    <string name="app_exit_hint">再按一次退出程序</string>
+    <string name="title_activity_fragment_module">Fragment组件化</string>
+    <string name="title_home">news</string>
+    <string name="title_dashboard">girls</string>
+    <string name="title_notifications">预留</string>
+    <string name="home_education">教务</string>
+    <string name="home_library">图书</string>
+    <string name="home_event">活动</string>
+    <string name="home_mine">我的</string>
+    <string name="todo">TODO</string>
+</resources>
